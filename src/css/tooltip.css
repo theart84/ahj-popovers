@@ -1,0 +1,40 @@
+.popover {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1070;
+  max-width: 276px;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+}
+
+.popover-title {
+  padding: 1rem 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.popover-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.show {
+  transition: opacity 0.3s linear;
+  opacity: 1;
+}
+
+

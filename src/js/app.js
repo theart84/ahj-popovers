@@ -1,8 +1,13 @@
-import Validator from './Validator';
-import paymentSystems from './paymentSystem';
+import Tooltip from './Tooltip';
 
 const root = document.querySelector('#root');
 
-const app = new Validator(root, paymentSystems);
+const tooltip = new Tooltip(root);
 
-app.init();
+tooltip.bindToDOM();
+
+const buttonElement = document.querySelector('button');
+
+buttonElement.addEventListener('click', () => {
+  tooltip.showTooltip(buttonElement);
+});
