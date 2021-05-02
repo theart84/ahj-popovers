@@ -1,21 +1,24 @@
 export default class Tooltip {
   constructor(container) {
+    if (!(container instanceof HTMLElement)) {
+      throw new Error('Передайте HTML элемент');
+    }
     this.container = container;
     this.show = false;
   }
 
-  static markup() {
+  static get markup() {
     return `
-      <div class='popover hidden fade'>
-        <div class='popover-arrow'></div>
-        <h3 class='popover-title'></h3>
-        <div class='popover-body'></div>
-      </div>    
+      <div class="popover hidden fade">
+        <div class="popover-arrow"></div>
+        <h3 class="popover-title"></h3>
+        <div class="popover-body"></div>
+      </div>
     `;
   }
 
   bindToDOM() {
-    this.container.insertAdjacentHTML('beforeend', this.constructor.markup());
+    this.container.insertAdjacentHTML('beforeend', this.constructor.markup);
   }
 
   get popoverContainer() {
@@ -33,7 +36,11 @@ export default class Tooltip {
   showTooltip(element) {
     if (this.show) {
       this.popoverContainer.classList.remove('show');
-      setTimeout(() => this.popoverContainer.classList.add('hidden'), 500);
+      setTimeout(() => {
+        this.popoverContainer.classList.add('hidden');
+        this.popoverTitle.textContent = '';
+        this.popoverBody.textContent = '';
+      }, 500);
       this.show = !this.show;
       return;
     }
@@ -41,17 +48,14 @@ export default class Tooltip {
     this.popoverTitle.textContent = element.dataset.ttTitle;
     this.popoverBody.textContent = element.dataset.ttMessage;
     const baseElementCoord = element.getBoundingClientRect();
-
     this.popoverContainer.classList.remove('hidden');
-
     const tooltipElementCoord = this.popoverContainer.getBoundingClientRect();
-    console.log(baseElementCoord);
-    console.log(tooltipElementCoord);
-
-    this.popoverContainer.style.top = `${baseElementCoord.top - tooltipElementCoord.height - 10}px`;
-    this.popoverContainer.style.left = `${
-      baseElementCoord.left + baseElementCoord.width / 2 - tooltipElementCoord.width / 2
-    }px`;
+    this.popoverContainer.style.top = `
+    ${baseElementCoord.top - tooltipElementCoord.height - 10}px
+    `;
+    this.popoverContainer.style.left = `
+    ${baseElementCoord.left + baseElementCoord.width / 2 - tooltipElementCoord.width / 2}px
+    `;
     this.popoverContainer.classList.add('show');
   }
 }

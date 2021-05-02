@@ -2,16 +2,16 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  z-index: 1070;
+  z-index: 10;
   max-width: 276px;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0,0,0,.2);
-  border-radius: .3rem;
+  border-radius: 4px;
 }
 
 .popover-title {
-  padding: 1rem 1rem;
+  padding: 16px 16px;
   margin-top: 0;
   margin-bottom: 0;
   background-color: rgba(0,0,0,.03);
@@ -20,7 +20,7 @@
 
 .popover-body {
   flex: 1 1 auto;
-  padding: 1rem 1rem;
+  padding: 16px 16px;
 }
 
 .hidden {
@@ -37,4 +37,25 @@
   opacity: 1;
 }
 
+.popover .popover-arrow::before {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.popover .popover-arrow::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
 

@@ -4,7 +4,6 @@
 }
 
 .container {
-  position: relative;
   width: 650px;
   margin-left: auto;
   margin-right: auto;
@@ -14,16 +13,14 @@
 .card {
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
+  border-radius: 4px;
 }
 
 .card-header {
-  padding: 1rem 1rem;
+  padding: 16px 16px;
   margin-bottom: 0;
   background-color: rgba(0,0,0,.03);
   border-bottom: 1px solid rgba(0,0,0,.125);
@@ -31,34 +28,25 @@
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1rem 1rem;
+  padding: 16px 16px;
 }
 
 .card-text {
   text-align: justify;
   color: #212529;
-  margin-bottom: 1rem;
-
+  margin-bottom: 16px;
 }
 
 .btn {
   display: inline-block;
-  font-weight: 400;
   line-height: 1.5;
   color: #212529;
   text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  background-color: transparent;
   border: 1px solid transparent;
-  padding: .375rem 2rem;
-  font-size: 1rem;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  padding: 6px 32px;
+  font-size: 16px;
+  border-radius: 4px;
 }
 
 .btn-primary {
